@@ -1,0 +1,48 @@
+/* Tokens de diseño — Nexus Comunitario. Ver .design/DESIGN.md */
+:root {
+  color-scheme: light dark;
+
+  /* Color: papel de levantamiento, tinta de dibujo técnico y cobalto de plano */
+  --paper: #eceee8;
+  --paper-2: #e2e5de;
+  --ink: #17201c;
+  --slate: #55615b;
+  --rule: #c8cfc9;
+  --cobalt: #2c44b0;
+  --danger: #a8281e;
+
+  /* Tipografía: una sola familia */
+  --font: 'Schibsted Grotesk Variable', 'Helvetica Neue', Arial, sans-serif;
+  --t-small: 0.875rem;
+  --t-body: 1.0625rem;
+  --t-lead: clamp(1.2rem, 1.6vw, 1.4rem);
+  --t-h3: 1.25rem;
+  --t-h2: clamp(1.45rem, 2vw, 1.75rem);
+  --t-title: clamp(2.5rem, 6vw, 4.75rem);
+  --t-display: clamp(2.75rem, 7.6vw, 6.75rem);
+
+  /* Movimiento: una sola curva (easeOutCubic) y dos duraciones */
+  --ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --dur-1: 180ms;
+  --dur-2: 480ms;
+
+  /* Espacio y retícula */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --container: min(1280px, 100% - 2 * var(--gutter));
+  --col-gap: clamp(1rem, 2.5vw, 2rem);
+  --section: clamp(4.5rem, 10vw, 8.5rem);
+  --header-h: 72px;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121715;
+    --paper-2: #1a201d;
+    --ink: #e3e7e2;
+    --slate: #9aa59f;
+    --rule: #2d3732;
+    --cobalt: #93a3f5;
+    --danger: #ff8f84;
+  }
+}

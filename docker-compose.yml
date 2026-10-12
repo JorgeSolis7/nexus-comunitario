@@ -1,0 +1,28 @@
+name: nexus-comunitario
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT:-Production}
+    volumes:
+      # Archivos subidos en tiempo de ejecución (persisten entre despliegues)
+      - uploads:/app/wwwroot/uploads
+    expose:
+      - "8080"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  uploads:

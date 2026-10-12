@@ -1,0 +1,41 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# Node
+node_modules/
+dist/
+
+# Entorno
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Capturas de verificación del design-loop
+.design/screenshots/
+
+# Variables de entorno (se conserva la plantilla)
+.env.*
+!.env.example
+
+# Bases de datos locales
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+data/
+
+# Archivos subidos en tiempo de ejecución
+**/wwwroot/uploads/
+
+# Artefactos locales de herramientas
+.jez/
+*.log
+.idea/

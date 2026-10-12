@@ -1,0 +1,260 @@
+/* ---------- Formulario: campos con línea inferior, sin cajas ---------- */
+.form {
+  display: grid;
+  gap: 2rem;
+}
+
+.form__row {
+  display: grid;
+  gap: 2rem var(--col-gap);
+}
+
+@media (min-width: 640px) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.field__label {
+  font-size: var(--t-small);
+  font-weight: 500;
+  padding: 0;
+}
+
+legend.field__label {
+  margin-bottom: 0.5rem;
+}
+
+.field__wrap {
+  position: relative;
+}
+
+.field__control {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 2rem 0.6rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+  transition:
+    border-color var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease);
+}
+
+.field__control:hover {
+  border-bottom-color: var(--slate);
+}
+
+.field__control:focus {
+  border-bottom-color: var(--ink);
+  box-shadow: 0 1px 0 var(--ink);
+}
+
+.field__control--area {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.field__status {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--cobalt);
+  opacity: 0;
+  transition: opacity var(--dur-1) var(--ease);
+}
+
+.field.is-valid .field__status {
+  opacity: 1;
+}
+
+.field.is-invalid .field__control {
+  border-bottom-color: var(--danger);
+  box-shadow: 0 1px 0 var(--danger);
+}
+
+.field__msg {
+  min-height: 1.4em;
+  font-size: var(--t-small);
+  color: var(--slate);
+}
+
+.field.is-invalid .field__msg {
+  color: var(--danger);
+}
+
+.field__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.field__count {
+  font-size: var(--t-small);
+  color: var(--slate);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Opciones: radio con indicador circular */
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.75rem;
+}
+
+.choice {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.choice input {
+  appearance: none;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid var(--slate);
+  transition:
+    border-color var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease);
+  cursor: pointer;
+}
+
+.choice:hover input {
+  border-color: var(--ink);
+}
+
+.choice input:checked {
+  border-color: var(--ink);
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 9px var(--ink);
+}
+
+.field.is-invalid .choice input {
+  border-color: var(--danger);
+}
+
+/* Casilla */
+.check {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.check__box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+  border-radius: 3px;
+  border: 1px solid var(--slate);
+  color: transparent;
+  transition:
+    background-color var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease),
+    color var(--dur-1) var(--ease);
+}
+
+.check:hover .check__box {
+  border-color: var(--ink);
+}
+
+.check input:checked + .check__box {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.check input:focus-visible + .check__box {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+.field.is-invalid .check__box {
+  border-color: var(--danger);
+}
+
+.form__submit {
+  justify-self: start;
+}
+
+/* Resumen de errores */
+.error-summary {
+  margin-bottom: 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--danger);
+}
+
+.error-summary:focus {
+  outline: none;
+}
+
+.error-summary__title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--danger);
+  margin-bottom: 0.5rem;
+}
+
+.error-summary ul {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.error-summary a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+/* Éxito */
+.form-success {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  animation: fade-in var(--dur-2) var(--ease) both;
+}
+
+.form-success:focus {
+  outline: none;
+}
+
+.form-success__title {
+  font-size: var(--t-h2);
+  letter-spacing: -0.02em;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

@@ -1,0 +1,149 @@
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(3.5rem, 7vw, 5rem);
+}
+
+.footer__grid {
+  row-gap: 3rem;
+}
+
+.footer__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-content: start;
+}
+
+.footer__intro .brand {
+  margin-right: 0;
+  justify-self: start;
+}
+
+.footer__intro > p {
+  color: var(--slate);
+}
+
+.footer__title {
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--slate);
+  margin-bottom: 0.75rem;
+}
+
+.footer__group ul {
+  display: grid;
+}
+
+.footer__group .link {
+  min-height: 40px;
+  text-decoration-color: transparent;
+  overflow-wrap: anywhere;
+}
+
+.footer__group .link:hover {
+  text-decoration-color: currentColor;
+}
+
+.footer__group .muted {
+  padding-top: 0.5rem;
+  font-size: var(--t-small);
+}
+
+@media (min-width: 640px) {
+  .footer__group {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer__intro {
+    grid-column: 1 / 5;
+  }
+  .footer__group {
+    grid-column: span 2;
+  }
+  .footer__group:nth-child(2) {
+    grid-column: 6 / 8;
+  }
+  .footer__group:last-child {
+    grid-column: 10 / 13;
+  }
+}
+
+/* Boletín */
+.newsletter {
+  margin-top: 1rem;
+  max-width: 24rem;
+}
+
+.newsletter__label {
+  display: block;
+  font-size: var(--t-small);
+  font-weight: 500;
+}
+
+.newsletter__row {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid var(--rule);
+  transition: border-color var(--dur-1) var(--ease);
+}
+
+.newsletter__row:focus-within {
+  border-bottom-color: var(--ink);
+}
+
+.newsletter.is-invalid .newsletter__row {
+  border-bottom-color: var(--danger);
+}
+
+.newsletter__input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.newsletter__input::placeholder {
+  color: var(--slate);
+}
+
+.newsletter__submit {
+  font-weight: 500;
+  text-decoration-color: currentColor;
+}
+
+.newsletter__msg {
+  min-height: 1.5em;
+  margin-top: 0.4rem;
+  font-size: var(--t-small);
+  color: var(--slate);
+}
+
+.newsletter.is-invalid .newsletter__msg {
+  color: var(--danger);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-small);
+  color: var(--slate);
+}
+
+.footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.footer__socials .link {
+  min-height: 44px;
+}
